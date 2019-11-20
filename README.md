@@ -25,10 +25,10 @@ import (
 	"github.com/Volumental/jsontemplate"
 )
 
-const input = `{ "snakeCase": 123 }`
+const input = `{ "snake_case": 123 }`
 
 func main() {
-	template, _ := jsontemplate.ParseString(`{ "CamelCase": $.snakeCase }`, nil)
+	template, _ := jsontemplate.ParseString(`{ "camelCase": $.snake_case }`, nil)
 	template.RenderJSON(os.Stdout, strings.NewReader(input))
 	os.Stdout.Sync()
 }
@@ -36,7 +36,7 @@ func main() {
 
 Running the above program will output:
 ```
-{"CamelCase":123}
+{"camelCase":123}
 ```
 
 ## Features by example
@@ -159,9 +159,11 @@ When fed through the following template:
 }
 ```
 
+For the complete example, see [`examples_test.go`](./examples_test.go).
+
 ## Performance
 
-`jsontemplate` has first and foremost been designed with correctness and ease of use in mind. As such, optimum performance has not been the primary objective. Nevertheless, you can expect to see in the order of 10 MB/s on a single CPU core, around half of which is JSON parsing/encoding. We expect this to be more than adequate for most production use-cases.
+`jsontemplate` has first and foremost been designed with correctness and ease of use in mind. As such, optimum performance has not been the primary objective. Nevertheless, you can expect to see in the order of 10 MB/s on a single CPU core, with around half of the load spent on JSON parsing/encoding. We expect this to be more than adequate for many production use-cases.
 
 ## Maturity
 
