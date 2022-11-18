@@ -9,6 +9,6 @@ metadata:
   annotations:
     github.com/project-slug: Volumental/jsontemplate
 spec:
-  type: tool
+  type: library
   lifecycle: production
   owner: infrastructure
