@@ -2,9 +2,13 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: jsontemplate
+  title: JSON Template
+  description: A JSON transformation and templating language and library implemented in Go
+  tags:
+    - go
   annotations:
     github.com/project-slug: Volumental/jsontemplate
 spec:
-  type: other
-  lifecycle: unknown
+  type: tool
+  lifecycle: production
   owner: infrastructure
